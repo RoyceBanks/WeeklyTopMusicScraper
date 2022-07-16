@@ -1,9 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
-import re
+from bs4 import BeautifulSoup               ### 
+import requests                         REQUIREMENTS
+import re                                   ###
 
-url = "https://www.americantop40.com/music/top-songs/"
-url_2 = "https://www.billboard.com/charts/hot-100/"
 url_3 = "https://top40weekly.com/"
 
 results = requests.get(url)
