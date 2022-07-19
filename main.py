@@ -1,21 +1,21 @@
-from bs4 import BeautifulSoup               ### 
-import requests                         REQUIREMENTS
-import re                                   ###
+from bs4 import BeautifulSoup                         ### 
+import requests                                  REQUIREMENTS
+import re                                            ###
 
-url_3 = "https://top40weekly.com/"
+url = "https://www.americantop40.com/music/top-songs/"
+url_3 = "https://top40weekly.com/"      
 
+print("--------------AmericanTop40.com--------------\n")
 results = requests.get(url)
 page = BeautifulSoup(results.text, "html.parser")
-chart = page.find_all("span")
-for names in chart:
-    names = str(names).split(">")[1].split("<")[0]
-    name = names
-    #print(names)
-    
-#span = chart.find_all("span")
-#parent = span[1].parent
-#print(chart)
+charts = page.find_all("span")[2:]
+charts = (str(charts).replace("<span>","").replace("</span>","")[1:-1])
+li = list(charts.split(", "))
 
+for names in li:  
+    name = str(names)
+    print(name)
+ 
 
 print("------------Top40.com------------- \n")
 
